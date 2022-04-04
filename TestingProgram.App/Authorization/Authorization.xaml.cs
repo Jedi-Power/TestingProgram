@@ -1,6 +1,8 @@
 using System.Windows;
+//using System.Linq;
+//using TestingProgram.DB_Lib;
 
-namespace TestingProgram.App
+namespace TestingProgram.App.Authorization
 {
     public partial class Authorization : Window
     {
