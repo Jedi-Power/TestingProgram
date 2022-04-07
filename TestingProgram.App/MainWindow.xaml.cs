@@ -1,18 +1,18 @@
-﻿using System.Windows;
+﻿using System.Security.Principal;
+using System.Windows;
 
 namespace TestingProgram.App
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        //публичное автосвойство из класса Account
+        //public Account Account { get; set; }
+        public MainWindow(/*Account account*/)
         {
             InitializeComponent();
 
-            Loaded += (sender, args) =>
-            {
-                var auth = new Authorization.Authorization();
-                auth.Show();
-            };
+            //var role = Account.Roles.First().RoleId;
+            //TabControl_User.SelectedIndex = role - 1;
         }
     }
 }

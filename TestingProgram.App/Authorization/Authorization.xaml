@@ -35,12 +35,12 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="ButtonCancel" 
                     Content="ОТМЕНА"
+                    Click="ButtonCancel_OnClick"
                     Style="{StaticResource StyleButtonCancel}"/>
-            <!-- Click="ButtonCancel_OnClick"/> -->
             <Button x:Name="ButtonAuth" 
                     Content="ВОЙТИ"
+                    Click="ButtonAuth_OnClick"
                     Style="{StaticResource StyleButtonAuth}"/>
-            <!-- Click="ButtonAuth_OnClick"/> -->
         </StackPanel>
         
     </StackPanel>
