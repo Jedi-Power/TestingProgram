@@ -7,6 +7,7 @@ namespace TestingProgram.App
         public string password { get; set; }
         public string email { get; set; }
 
+        public User() { }
         public User(string _login, string _password, string _email)
         {
             login = _login;

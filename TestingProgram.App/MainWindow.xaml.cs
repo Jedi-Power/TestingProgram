@@ -25,46 +25,45 @@ namespace TestingProgram.App
                 TextBox_Login.ToolTip = "Не менее 3-х символов!";
                 TextBox_Login.Background = Brushes.Red;
             }
-            else
-            {
-                TextBox_Login.ToolTip = "";
-                TextBox_Login.Background = Brushes.Transparent;
-            }
-            
-            if (password.Length < 5)
+            else if (password.Length < 5)
             {
                 PassBox_Pass.ToolTip = "Не менее 5-х символов!";
                 PassBox_Pass.Background = Brushes.Red;
             }
-            else
-            {
-                PassBox_Pass.ToolTip = "";
-                PassBox_Pass.Background = Brushes.Transparent;
-            }
-            
-            if (password != password2)
+            else if (password != password2)
             {
                 PassBox_Pass2.ToolTip = "Пароли не совпадают!";
                 PassBox_Pass2.Background = Brushes.Red;
             }
-            else
-            {
-                PassBox_Pass2.ToolTip = "";
-                PassBox_Pass2.Background = Brushes.Transparent;
-            }
-            
-            if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
+            else if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
             {
                 TextBox_Email.ToolTip = "Некорректный Email!";
                 TextBox_Email.Background = Brushes.Red;
             }
             else
             {
+                TextBox_Login.ToolTip = "";
+                TextBox_Login.Background = Brushes.Transparent;
+                PassBox_Pass.ToolTip = "";
+                PassBox_Pass.Background = Brushes.Transparent;
+                PassBox_Pass2.ToolTip = "";
+                PassBox_Pass2.Background = Brushes.Transparent;
                 TextBox_Email.ToolTip = "";
                 TextBox_Email.Background = Brushes.Transparent;
 
-                MessageBox.Show("Вы зарегистрированы!");
+                MessageBox.Show("Вы зарегистрировались!");
+                
+                AuthWindow authWindow = new AuthWindow();
+                authWindow.Show();
+                Hide();
             }
+        }
+
+        private void Button_Window_Auth_OnClick(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.Show();
+            Hide();
         }
     }
 }
