@@ -7,9 +7,12 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
-        Title="Программа для тестирования" Height="450" Width="500" ResizeMode="NoResize">
+        Title="Окно регистрации" Height="450" Width="500" 
+        ResizeMode="NoResize" AllowsTransparency="True" 
+        Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
     
-    <Grid Background="Silver">
+    <Grid>
         <Border MinWidth="400" VerticalAlignment="Center" Background="White" 
                 Padding="30" Margin="15" 
                 MaxWidth="500" CornerRadius="20">

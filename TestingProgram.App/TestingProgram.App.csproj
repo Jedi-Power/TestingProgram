@@ -10,4 +10,11 @@
       <PackageReference Include="MaterialDesignThemes" Version="4.4.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Source\windowclose_.png" />
+      <Resource Include="Source\windowclose_.png" />
+      <None Remove="Source\windowminimize_.png" />
+      <Resource Include="Source\windowminimize_.png" />
+    </ItemGroup>
+
 </Project>
