@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models.lib
+﻿namespace Models.lib
 {
-    internal class Question
+    public class Question
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public byte Picture { get; set; }
+        public int Number { get; set; }
     }
 }
