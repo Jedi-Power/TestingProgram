@@ -34,17 +34,17 @@ namespace TestingProgram.App
 
                 MessageBox.Show("Вы авторизовались!");
 
-                AdminWindow adminWindow = new AdminWindow();
+                /*AdminWindow adminWindow = new AdminWindow();
                 adminWindow.Show();
-                Hide();
+                Hide();*/
             }
         }
 
-        private void Button_Window_Reg_OnClick(object sender, RoutedEventArgs e)
+        /*private void Button_Window_Reg_OnClick(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Hide();
-        }
+        }*/
     }
 }
