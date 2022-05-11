@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Models.lib\Models.lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="conection_db.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
