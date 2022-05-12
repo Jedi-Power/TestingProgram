@@ -10,7 +10,11 @@
         Title="Редактор тестов" Height="600" Width="1000" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" Background="LightGray"
         BorderThickness="1" BorderBrush="BlueViolet" FontFamily="Calibri" FontWeight="Bold">
-
+    
+    <Window.Resources>
+        <ResourceDictionary Source="Styles.xaml"/>
+    </Window.Resources>
+    
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -50,8 +54,12 @@
 
         <Grid x:Name="MenuTest" Column="0" Row="1" RowSpan="4">
             <Border BorderThickness="0 0 1 0" BorderBrush="BlueViolet">
-                <ListBox x:Name="ListTest">
-
+                <ListBox x:Name="ListTest" SelectionChanged="ListTest_OnSelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=SubjectId}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </Border>
         </Grid>
@@ -59,10 +67,14 @@
         <Grid x:Name="EditorTest" Column="1" Row="1" Height="150">
             <Border BorderThickness="0 0  0 1" BorderBrush="BlueViolet">
                 <StackPanel Orientation="Horizontal" Height="150" VerticalAlignment="Top">
-                    <TextBox x:Name="TextBoxAnsver" Width="500"
-                             BorderThickness="0 0 1 0" BorderBrush="BlueViolet">
-
-                    </TextBox>
+                    <StackPanel Width="500">
+                        <Label Margin="5" Content="НАПИШИТЕ ТЕМУ ТЕСТА:" />
+                        <TextBox x:Name="TextBoxSubject" BorderThickness="0 0 0 1" 
+                                 BorderBrush="BlueViolet"/>
+                        <Label Margin="5" Content="НАПИШИТЕ ВОПРОС:" />
+                        <TextBox x:Name="TextBoxAnsver" Width="500"
+                                 BorderThickness="0 0 1 0" BorderBrush="BlueViolet"/>
+                    </StackPanel>
                     <Image Source="https://ak.picdn.net/shutterstock/videos/1031243834/thumb/8.jpg"
                            Width="250" Height="auto" VerticalAlignment="Top" Stretch="Fill" />
                 </StackPanel>
@@ -71,7 +83,7 @@
 
         <Grid Column="1" Row="2" Height="80">
             <StackPanel>
-                <Label Margin="5" Content="ВЫБЕРИТЕ КОЛИЧЕСТВО ПРАВИЛЬНЫХ ОТВЕТОВ" />
+                <Label Margin="5" Content="ВЫБЕРИТЕ КОЛИЧЕСТВО ПРАВИЛЬНЫХ ОТВЕТОВ:" />
                 <StackPanel Orientation="Horizontal">
                     <RadioButton Margin="10" Content="1" IsChecked="True" />
                     <RadioButton Margin="10" Content="2" />
@@ -87,21 +99,18 @@
         <Grid Column="1" Row="3" Height="250">
             <Border BorderThickness="0 1 0 1" BorderBrush="BlueViolet">
                 <StackPanel>
-                    <Label Margin="5" Content="ВЫБЕРИТЕ ПРАВИЛЬНЫ(Й/Е) ОТВЕТ(Ы)" />
+                    <Label Margin="5" Content="ВЫБЕРИТЕ ПРАВИЛЬНЫ(Й/Е) ОТВЕТ(Ы):" />
                     <ListBox>
                         <RadioButton>
-                            <TextBox Width="700" Height="40"
-                                     BorderThickness="1" BorderBrush="Gray">
+                            <TextBox Style="{StaticResource Style_TexBoxAnswer}">
                                 Ответ 1</TextBox>
                         </RadioButton>
                         <RadioButton>
-                            <TextBox Width="700" Height="40"
-                                     BorderThickness="1" BorderBrush="Gray">
+                            <TextBox Style="{StaticResource Style_TexBoxAnswer}">
                                 Ответ 2</TextBox>
                         </RadioButton>
                         <RadioButton>
-                            <TextBox Width="700" Height="40"
-                                     BorderThickness="1" BorderBrush="Gray">
+                            <TextBox Style="{StaticResource Style_TexBoxAnswer}">
                                 Ответ 3</TextBox>
                         </RadioButton>
                     </ListBox>
@@ -115,8 +124,8 @@
         <Grid Column="1" Row="4" Height="50">
             <StackPanel Orientation="Horizontal">
                 <Button Width="250" Margin="20 0 0 0" Content="ДОБАВИТЬ ВОПРОС В ТЕСТ"/>
-                <Button Width="150" Margin="310 0 0 0" 
-                        Background="Green" Content="СОХРАНИТЬ"/>
+                <Button x:Name="ButtonSave" Width="150" Margin="310 0 0 0" 
+                        Background="Green" Content="СОХРАНИТЬ" Click="ButtonSave_OnClick"/>
             </StackPanel>
         </Grid>
 

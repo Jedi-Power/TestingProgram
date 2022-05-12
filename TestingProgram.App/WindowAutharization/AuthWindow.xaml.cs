@@ -1,7 +1,9 @@
 using System.Windows;
 using System.Windows.Media;
+using Db_Lib;
+using MySql.Data.MySqlClient;
 
-namespace TestingProgram.App
+namespace TestingProgram.App.WindowAutharization
 {
     public partial class AuthWindow : Window
     {
@@ -27,16 +29,28 @@ namespace TestingProgram.App
             }
             else
             {
-                TextBox_Login.ToolTip = "";
+                //var db = new DB();
+
+                /*MySqlCommand command = new MySqlCommand("SELECT * FROM 'users' WHERE 'login' = @_ul AND 'pass' = @_up");
+                command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = login;
+                command.Parameters.Add("@up", MySqlDbType.VarChar).Value = password;*/
+
+                if (true)
+                {
+                    MessageBox.Show("Вы авторизовались!");
+                    AdminWindow adminWindow = new AdminWindow();
+                    adminWindow.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("ERROR!!!");
+                }
+
+                /*TextBox_Login.ToolTip = "";
                 TextBox_Login.Background = Brushes.Transparent;
                 PassBox_Pass.ToolTip = "";
-                PassBox_Pass.Background = Brushes.Transparent;
-
-                MessageBox.Show("Вы авторизовались!");
-
-                /*AdminWindow adminWindow = new AdminWindow();
-                adminWindow.Show();
-                Hide();*/
+                PassBox_Pass.Background = Brushes.Transparent;*/
             }
         }
 

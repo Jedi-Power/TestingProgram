@@ -8,13 +8,21 @@
 
     <ItemGroup>
       <PackageReference Include="MaterialDesignThemes" Version="4.4.0" />
+      <PackageReference Include="MySql.Data" Version="8.0.29" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Source\windowclose_.png" />
-      <Resource Include="Source\windowclose_.png" />
       <None Remove="Source\windowminimize_.png" />
-      <Resource Include="Source\windowminimize_.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Db_Lib\Db_Lib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Source\windowclose_.png" />
+      <Content Include="Source\windowminimize_.png" />
+    </ItemGroup>
+    
 </Project>
