@@ -1,0 +1,51 @@
+﻿<Window x:Class="ProgramForTesting.App.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgramForTesting.App"
+        mc:Ignorable="d"
+        Title="Window3" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="DarkGray"/>
+                <GradientStop Color="#FFB5ECEC" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <TextBlock x:Name="TextBlockTxt1" Text="Тестирование завершено" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0" Width="600" Height="80" FontSize="50"/>
+
+        <TextBlock x:Name="TextBlockFIO" Text="Имя Отчество," HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,171,0,0" Width="800" Height="80" FontSize="50"/>
+
+        <TextBlock x:Name="TextBlockTxt2" Text="Вы ответили верно на" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,278,0,0" Width="520" Height="80" FontSize="50"/>
+        <TextBlock x:Name="TextBlockRightAnswers" Text="___" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="572,278,0,0" Width="60" Height="80" FontSize="50"/>
+        <TextBlock x:Name="TextBlockTxt3" Text="из" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="639,278,0,0" Width="60" Height="80" FontSize="50"/>
+        <TextBlock x:Name="TextBlockQuestionsInCurrentTest" Text="___" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="704,278,0,0" Width="60" Height="80" FontSize="50"/>
+        <TextBlock x:Name="TextBlockTxt4" Text="вопросов (" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="771,278,0,0" Width="250" Height="80" FontSize="50"/>
+        <TextBlock x:Name="TextBlockEvaluationPercents" Text="___" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1027,278,0,0" Width="60" Height="80" FontSize="50"/>
+        <TextBlock x:Name="TextBlockTxt5" Text="%)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1094,278,0,0" Width="60" Height="80" FontSize="50"/>
+
+        <TextBlock x:Name="TextBlockTxt6" Text="Ваша оценка:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,420,0,0" Width="520" Height="120" FontSize="80"/>
+        <TextBlock x:Name="TextBlockEvaluation" Text="___" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="811,420,0,0" Width="110" Height="120" FontSize="80"/>
+
+
+        <Button x:Name="ButtonExit" Content="Выйти из программы" HorizontalAlignment="Left" Foreground="Black" BorderThickness="3,3,3,3" Width="400" Height="100" IsDefault="True" VerticalAlignment="Bottom" Margin="80,0,0,61" FontSize="30" FontFamily="Trebuchet MS" Click="ButtonExit_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="LightBlue"/>
+                    <GradientStop Color="#FF7DBFD3" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="ButtonBackToSubjects" Content="Вернуться к списку тестов" HorizontalAlignment="Left" Foreground="Black" BorderThickness="3,3,3,3" Width="400" Height="100" IsDefault="True" VerticalAlignment="Bottom" Margin="721,0,0,61" FontSize="30" FontFamily="Trebuchet MS" Click="ButtonBackToSubjects_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="LightBlue"/>
+                    <GradientStop Color="#FF7DBFD3" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
