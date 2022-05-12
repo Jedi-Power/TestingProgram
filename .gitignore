@@ -402,4 +402,10 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
 
+<<<<<<< HEAD
 .idea
+=======
+.idea
+
+TestingProgram.App/connection_to_db.ini
+>>>>>>> gui
