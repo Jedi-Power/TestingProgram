@@ -404,8 +404,5 @@ FodyWeavers.xsd
 
 <<<<<<< HEAD
 .idea
-=======
-.idea
 
-TestingProgram.App/connection_to_db.ini
->>>>>>> gui
+DB/connection_db.ini
