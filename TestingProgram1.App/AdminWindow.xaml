@@ -86,14 +86,28 @@
                 <Label Margin="5" Content="Баллы за ответ:" />
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Label Margin="0" Content="Вопрос 1"  />
-                        <Label Margin="0" Content="Вопрос 2"  />
-                        <Label Margin="0" Content="Вопрос 3"  />
+                        <TextBlock Margin="0" Text="Вопрос 1" Width="90" TextAlignment="Center" />
+                        <TextBlock Margin="0" Text="Вопрос 2" Width="90" TextAlignment="Center" />
+                        <TextBlock Margin="0" Text="Вопрос 3" Width="90" TextAlignment="Center" />
+                        <TextBlock Margin="0" Text="Вопрос 4" Width="90" TextAlignment="Center" />
+                        <TextBlock Margin="0" Text="Вопрос 5" Width="90" TextAlignment="Center" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Margin="0" Content="1"  />
-                        <Label Margin="0" Content="1"  />
-                        <Label Margin="0" Content="1"  />
+                    <StackPanel Orientation="Horizontal" Cursor="Arrow">
+                        <Border BorderBrush="Aqua" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        </Border>
+                        <Border BorderBrush="Aqua" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        </Border>
+                        <Border BorderBrush="Aqua" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        </Border>
+                        <Border BorderBrush="Aqua" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        </Border>
+                        <Border BorderBrush="Aqua" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        </Border>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
