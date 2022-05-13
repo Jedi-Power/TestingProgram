@@ -21,7 +21,7 @@ namespace ProgramForTesting.App
     /// </summary>
     public partial class Window1 : Window
     {
-        const int MaxTimerCounter = 3600;//сюда присвоить время прохождения теста
+        int MaxTimerCounter = ForAll.time * 60;//время прохождения теста
 
 
         public Window1()

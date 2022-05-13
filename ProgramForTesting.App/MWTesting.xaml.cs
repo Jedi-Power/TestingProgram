@@ -41,9 +41,20 @@ namespace ProgramForTesting.App
             ListBoxTestList.ItemsSource = subj;
         }
 
-        private void ListBoxTestList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ListBoxTestList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ForAll.theme1 = ListBoxTestList.SelectedItem.ToString();
+
+            var db = new RequestDb();
+            await db.GetSubjectAsync();
+            for (int i = 0; i < db._subjects.Count; i++)
+            {
+                if (db._subjects[i].Name == ForAll.theme1)
+                {
+                    ForAll.time = db._subjects[i].Allotted_time;
+                    ForAll.subjectID = db._subjects[i].Id;
+                }
+            }
         }
 
         private void ButtonSelectTest_Click(object sender, RoutedEventArgs e)
@@ -52,11 +63,15 @@ namespace ProgramForTesting.App
             new Window1().Show();
             this.Hide();
         }
-    }
+
+        
+}
 
     static class ForAll
     {
         public static string theme1 { get; set; }
+        public static int time { get; set; }
+        public static int subjectID { get; set; }
     }
 }
 

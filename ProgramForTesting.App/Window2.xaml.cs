@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using DB;
+using Models.lib;
+
 
 namespace ProgramForTesting.App
 {
@@ -20,9 +23,10 @@ namespace ProgramForTesting.App
     /// </summary>
     public partial class Window2 : Window
     {
-        const int MaxTimerCounter = 3600;//сюда присвоить время прохождения теста
+        int MaxTimerCounter = ForAll.time * 60;//время прохождения теста в секундах
         const int MinTimerCounter = 0;
 
+        
         DispatcherTimer _dispTimer;
         int _dispTimerCounter;
         public Window2()
@@ -34,6 +38,29 @@ namespace ProgramForTesting.App
             _dispTimer.Tick += new EventHandler(dispTimer_Tick);
             _dispTimer.Start();
         }
+
+        //
+        private async void GetQuestions()
+        {
+            //получение questionid answerid по известному subjectid
+            var db = new RequestDb();
+            await db.GetTestAsync();
+            List<Test> currentTest = new List<Test>();
+            for (int i = 0; i < db._tests.Count; i++)
+            {
+                if (db._tests[i].SubjectId == ForAll.subjectID)
+                {
+                    currentTest.Add(new Test
+                    {
+                        Id = db._tests[i].Id,
+                        QuestionId = db._tests[i].QuestionId,
+                        AnsverId = db._tests[i].AnsverId
+                    });
+                }
+            }
+        }
+        
+
         void dispTimer_Tick(object sender, EventArgs e)
         {
             //сначала выводится значение, потом инкрементируется

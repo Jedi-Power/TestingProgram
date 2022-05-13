@@ -21,7 +21,7 @@ namespace TestingProgram1.App
     public partial class AdminWindow : Window
     {
         string theme = "";// в переменную сохраняется выбранная тема теста
-        string imagePath = "";
+        string imagePath = ""; // переменная путь к изображению 
         public AdminWindow()
         {
             InitializeComponent();
@@ -91,10 +91,21 @@ namespace TestingProgram1.App
                     subjectId = db._subjects[i].Id;
             }
 
-            //позже прописать логику добавления вопроса с картинкой
-            var comandAddQuestion = $"INSERT INTO tab_Questions(ask_question, question_number) VALUES(N'{TextBoxQuestion.Text}',{int.Parse(TextBoxQuestionNumber.Text)})";
-            RequestDb requestDb = new RequestDb();
-            await requestDb.RequestExecuteNonQueryAsync(comandAddQuestion);
+            
+            if(imagePath == "")
+            {
+                //без картинки
+                var comandAddQuestion = $"INSERT INTO tab_Questions(ask_question, question_number) VALUES(N'{TextBoxQuestion.Text}',{int.Parse(TextBoxQuestionNumber.Text)})";
+                RequestDb requestDb = new RequestDb();
+                await requestDb.RequestExecuteNonQueryAsync(comandAddQuestion);
+            }
+            else
+            {
+                //с картинкой
+                db = new RequestDb();
+                await db.SetQuestionAsync(imagePath, TextBoxQuestion.Text, int.Parse(TextBoxQuestionNumber.Text));
+            }
+            
 
             //получаем questionID
             var comand1 = $"SELECT id FROM tab_Questions WHERE ask_question = '{TextBoxQuestion.Text}'";
@@ -136,7 +147,7 @@ namespace TestingProgram1.App
 
                 //добавляем запись в таблицу Tests
                 var comandAddTest = $"INSERT INTO tab_Tests(questionId, ansverId,subjectId) VALUES({questionId},{answerId},{subjectId})";//(без изображения)
-                requestDb = new RequestDb();
+                var requestDb = new RequestDb();
                 await requestDb.RequestExecuteNonQueryAsync(comandAddTest);
             }
 
@@ -165,7 +176,7 @@ namespace TestingProgram1.App
 
                 //добавляем запись в таблицу Tests
                 var comandAddTest = $"INSERT INTO tab_Tests(questionId, ansverId,subjectId) VALUES({questionId},{answerId},{subjectId})";//(без изображения)
-                requestDb = new RequestDb();
+                var requestDb = new RequestDb();
                 await requestDb.RequestExecuteNonQueryAsync(comandAddTest);
             }
 
@@ -194,7 +205,7 @@ namespace TestingProgram1.App
 
                 //добавляем запись в таблицу Tests
                 var comandAddTest = $"INSERT INTO tab_Tests(questionId, ansverId,subjectId) VALUES({questionId},{answerId},{subjectId})";//(без изображения)
-                requestDb = new RequestDb();
+                var requestDb = new RequestDb();
                 await requestDb.RequestExecuteNonQueryAsync(comandAddTest);
             }
 
@@ -223,7 +234,7 @@ namespace TestingProgram1.App
 
                 //добавляем запись в таблицу Tests
                 var comandAddTest = $"INSERT INTO tab_Tests(questionId, ansverId,subjectId) VALUES({questionId},{answerId},{subjectId})";//(без изображения)
-                requestDb = new RequestDb();
+                var requestDb = new RequestDb();
                 await requestDb.RequestExecuteNonQueryAsync(comandAddTest);
             }
 
@@ -252,18 +263,19 @@ namespace TestingProgram1.App
 
                 //добавляем запись в таблицу Tests
                 var comandAddTest = $"INSERT INTO tab_Tests(questionId, ansverId,subjectId) VALUES({questionId},{answerId},{subjectId})";//(без изображения)
-                requestDb = new RequestDb();
+                var requestDb = new RequestDb();
                 await requestDb.RequestExecuteNonQueryAsync(comandAddTest);
             }
         }
 
         private void ButtonLoadImage_Click(object sender, RoutedEventArgs e)
         {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                if (openFileDialog.ShowDialog() == true)
-                imagePath = openFileDialog.FileName;
-
-            MessageBox.Show(imagePath);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            imagePath = openFileDialog.FileName;
+           
         }
+
+        // не забыть прописать обработчик на кнопку удаление теста
     }
 }
