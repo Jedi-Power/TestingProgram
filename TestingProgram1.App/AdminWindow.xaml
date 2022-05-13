@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 
-        Title="Редактор тестов" Height="600" Width="1000" ResizeMode="NoResize"
+        Title="Редактор тестов" Height="800" Width="1000" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" Background="LightGray"
         BorderThickness="1" BorderBrush="BlueViolet" FontFamily="Calibri" FontWeight="Bold">
 
@@ -33,34 +33,48 @@
         <Grid x:Name="MenuTop" Row="0" ColumnSpan="2" Height="70"
               MouseDown="MenuTop_DragAndDrop" Background="Transparent">
             <Border BorderThickness="0 0 0 1" BorderBrush="BlueViolet">
-                <StackPanel Orientation="Horizontal">
-                    <Button Width="150" Margin="20 10 10 10" Content="СОЗДАТЬ ТЕСТ"
-                            Background="Green" />
-                    <Button Width="150" Margin="10" Content="ИЗМЕНИТЬ ТЕСТ" />
-                    <Button Width="150" Margin="10" Content="УДАЛИТЬ ТЕСТ"
-                            Background="DarkRed" />
-                </StackPanel>
+                
             </Border>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
                         VerticalAlignment="Top">
-                <Label Margin="20 0" Content="ДОБРО ПОЖАЛОВАТЬ В РЕДАКТОР ТЕСТОВ" 
-                       FontSize="20" Foreground="Indigo" Padding="0 20 0 0"/>
-                <Image Height="25" Width="25"
+                <StackPanel Width="900">
+                    <Label Margin="0" Content="ДОБРО ПОЖАЛОВАТЬ В РЕДАКТОР ТЕСТОВ" 
+                       FontSize="20" Foreground="Indigo" Padding="0 20 0 0" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="100">
+                    <Image Height="25" Width="25" Margin="30 0 0 0"
                        Source="Source/windowminimize_.png" MouseDown="Minimize_Window" />
-                <Image Height="25" Width="25" Margin="0 0 10 0"
+                    <Image Height="25" Width="25" Margin="10 0 0 0"
                        Source="Source/windowclose_.png" MouseDown="Close_Window" />
+                </StackPanel>
             </StackPanel>
         </Grid>
 
         <Grid x:Name="MenuTest" Column="0" Row="1" RowSpan="4">
-            <Border BorderThickness="0 0 1 0" BorderBrush="BlueViolet">
-                <ListBox x:Name="ListTest" SelectionChanged="ListTest_OnSelectionChanged">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=SubjectId}"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+            <Border BorderThickness="1" BorderBrush="BlueViolet" Margin="0,0,0,50">
+                
+                <StackPanel>
+                    <Label Margin="5" Content="Введите название нового теста:" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxSubject"  
+                                 BorderBrush="BlueViolet" BorderThickness="0 1 0 1" Width="250" Height="50" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                    <Button Width="150" Margin="0 10" Content="Добавить тест"
+                            Background="Green"/>
+                    <StackPanel VerticalAlignment="Top">
+                        <ListBox x:Name="ListTest" Height="450" BorderBrush="BlueViolet" BorderThickness="2" SelectionChanged="ListTest_OnSelectionChanged" Margin="0,0,0,50">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=SubjectId}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Width="120" Margin="0 10" Padding="0" Content="Добавить вопросы"
+                            Background="Green"/>
+                            <Button Width="120" Margin="5 10 0 10" Content="Удалить тест"
+                            Background="Red"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
             </Border>
         </Grid>
 
@@ -68,12 +82,14 @@
             <Border BorderThickness="0 0  0 1" BorderBrush="BlueViolet">
                 <StackPanel Orientation="Horizontal" Height="150" VerticalAlignment="Top">
                     <StackPanel Width="500">
-                        <Label Margin="5" Content="НАПИШИТЕ ТЕМУ ТЕСТА:" />
-                        <TextBox x:Name="TextBoxSubject" BorderThickness="0 0 0 1" 
-                                 BorderBrush="BlueViolet"/>
-                        <Label Margin="5" Content="НАПИШИТЕ ВОПРОС:" />
+                        <StackPanel Orientation="Horizontal">
+                        <Label Margin="5" Content="УКАЖИТЕ НОМЕР ВОПРОСА В ТЕСТЕ:" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="TextBoxAnsverNumber" Width="100"
+                                 BorderThickness="1 1 1 1" BorderBrush="BlueViolet" TextWrapping="Wrap"/>
+                        </StackPanel>
+                        <Label Margin="5" Content="ВВЕДИТЕ ВОПРОС В ПОЛЕ НИЖЕ:" HorizontalContentAlignment="Center"/>
                         <TextBox x:Name="TextBoxAnsver" Width="500"
-                                 BorderThickness="0 0 1 0" BorderBrush="BlueViolet"/>
+                                 BorderThickness="0 1 1 1" BorderBrush="BlueViolet" Height="80" TextWrapping="Wrap"/>
                     </StackPanel>
                     <Image Source="https://ak.picdn.net/shutterstock/videos/1031243834/thumb/8.jpg"
                            Width="250" Height="auto" VerticalAlignment="Top" Stretch="Fill" />
@@ -81,72 +97,70 @@
             </Border>
         </Grid>
 
-        <Grid Column="1" Row="2" Height="80">
+        <Grid Column="1" Row="2" Height="130">
             <StackPanel>
-                <Label Margin="5" Content="Баллы за ответ:" />
+                <Label Margin="0 30 0 0" Content="Баллы за ответ:" Width="500" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontStyle="Oblique" FontWeight="Bold"/>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="0" Text="Вопрос 1" Width="90" TextAlignment="Center" />
-                        <TextBlock Margin="0" Text="Вопрос 2" Width="90" TextAlignment="Center" />
-                        <TextBlock Margin="0" Text="Вопрос 3" Width="90" TextAlignment="Center" />
-                        <TextBlock Margin="0" Text="Вопрос 4" Width="90" TextAlignment="Center" />
-                        <TextBlock Margin="0" Text="Вопрос 5" Width="90" TextAlignment="Center" />
+                        <TextBlock Margin="10 10 0 0" Text="Ответ 1" Width="85" TextAlignment="Center" />
+                        <TextBlock Margin="10 10 0 0" Text="Ответ 2" Width="85" TextAlignment="Center" />
+                        <TextBlock Margin="10 10 0 0" Text="Ответ 3" Width="85" TextAlignment="Center" />
+                        <TextBlock Margin="10 10 0 0" Text="Ответ 4" Width="85" TextAlignment="Center" />
+                        <TextBlock Margin="10 10 0 0" Text="Ответ 5" Width="85" TextAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Cursor="Arrow">
-                        <Border BorderBrush="Aqua" BorderThickness="1">
-                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        <Border Margin="8 9 0 0" BorderBrush="DarkCyan" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="85" TextAlignment="Center" />
                         </Border>
-                        <Border BorderBrush="Aqua" BorderThickness="1">
-                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        <Border Margin="8 9 0 0" BorderBrush="DarkCyan" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="85" TextAlignment="Center" />
                         </Border>
-                        <Border BorderBrush="Aqua" BorderThickness="1">
-                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        <Border Margin="8 9 0 0" BorderBrush="DarkCyan" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="85" TextAlignment="Center" />
                         </Border>
-                        <Border BorderBrush="Aqua" BorderThickness="1">
-                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        <Border Margin="8 9 0 0" BorderBrush="DarkCyan" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="85" TextAlignment="Center" />
                         </Border>
-                        <Border BorderBrush="Aqua" BorderThickness="1">
-                            <TextBox Margin="0" Text="" Width="90" TextAlignment="Center" />
+                        <Border Margin="8 9 0 0" BorderBrush="DarkCyan" BorderThickness="1">
+                            <TextBox Margin="0" Text="" Width="85" TextAlignment="Center" />
                         </Border>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button x:Name="ButtonLoadImage" Content="загрузить изображение"
-                        Margin="5" Width="240" Background="Transparent" Foreground="Black"/>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,0,0">
+                <Button x:Name="ButtonLoadImage" Content="Добавить изображение к вопросу"
+                        Margin="0" Width="250" Background="Transparent" Foreground="Black" VerticalAlignment="Top"/>
             </StackPanel>
         </Grid>
 
-        <Grid Column="1" Row="3" Height="250">
-            <Border BorderThickness="0 1 0 1" BorderBrush="BlueViolet">
-                <StackPanel>
-                    <Label Margin="5" Content="ВЫБЕРИТЕ ПРАВИЛЬНЫ(Й/Е) ОТВЕТ(Ы):" />
-                    <ListBox>
-                        <RadioButton>
-                            <TextBox Style="{StaticResource Style_TexBoxAnswer}">
-                                Ответ 1</TextBox>
-                        </RadioButton>
-                        <RadioButton>
-                            <TextBox Style="{StaticResource Style_TexBoxAnswer}">
-                                Ответ 2</TextBox>
-                        </RadioButton>
-                        <RadioButton>
-                            <TextBox Style="{StaticResource Style_TexBoxAnswer}">
-                                Ответ 3</TextBox>
-                        </RadioButton>
-                    </ListBox>
-                    <Button x:Name="ButtonAddAnswer" Width="250" Content="ДОБАВИТЬ ВАРИАНТ ОТВЕТА"
-                            Background="Transparent" Foreground="Black">
-                    </Button>
+        <Grid Column="1" Row="3" Height="390">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="348*"/>
+                <ColumnDefinition Width="401*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="0 1 0 1" BorderBrush="BlueViolet" Grid.ColumnSpan="2">
+                <StackPanel HorizontalAlignment="Left" Width="750" Height="380" VerticalAlignment="Top">
+                    <Label Margin="0" HorizontalContentAlignment="Center" Content="Введите варианты ответов :" />
+                    <StackPanel>
+                        <TextBox Style="{StaticResource Style_TexBoxAnswer}" TextWrapping="Wrap">
+                            Ответ 1</TextBox>
+                        <TextBox Style="{StaticResource Style_TexBoxAnswer}">
+                            Ответ 2</TextBox>
+                        <TextBox Style="{StaticResource Style_TexBoxAnswer}">
+                            Ответ 3</TextBox>
+                        <TextBox Style="{StaticResource Style_TexBoxAnswer}">
+                            Ответ 4</TextBox>
+                        <TextBox Style="{StaticResource Style_TexBoxAnswer}">
+                            Ответ 5</TextBox>
+                    </StackPanel>
+
                 </StackPanel>
             </Border>
         </Grid>
 
         <Grid Column="1" Row="4" Height="50">
             <StackPanel Orientation="Horizontal">
-                <Button Width="250" Margin="20 0 0 0" Content="ДОБАВИТЬ ВОПРОС В ТЕСТ"/>
-                <Button x:Name="ButtonSave" Width="150" Margin="310 0 0 0" 
-                        Background="Green" Content="СОХРАНИТЬ" Click="ButtonSave_OnClick"/>
+                <Button Width="740" Content="ДОБАВИТЬ ВОПРОС В ТЕСТ"/>
             </StackPanel>
         </Grid>
 
