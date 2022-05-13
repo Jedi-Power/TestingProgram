@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using TestingProgram1.App;
+using ProgramForTesting.App;
+using DB;
 
 
 namespace TestingProgram.App.Authtorization.App
@@ -18,10 +20,10 @@ namespace TestingProgram.App.Authtorization.App
             InitializeComponent();
         }
 
-        private void Button_Auth_OnClick(object sender, RoutedEventArgs e)
+        private async void Button_Auth_OnClick(object sender, RoutedEventArgs e)
         {
-            string login = TextBox_Login.Text.Trim();
-            string password = PassBox_Pass.Password.Trim();
+            string login = TextBox_Login.Text;
+            string password = PassBox_Pass.Password;
 
             if (login.Length < 3)
             {
@@ -35,36 +37,37 @@ namespace TestingProgram.App.Authtorization.App
             }
             else
             {
-                //var db = new DB();
+                string comand = "Select * from tab_Authorizations";
+                RequestDb requestDb = new RequestDb();
+                var res = await requestDb.QueryAuthorizationAsync(comand, login, password);
 
-                /*MySqlCommand command = new MySqlCommand("SELECT * FROM 'users' WHERE 'login' = @_ul AND 'pass' = @_up");
-                command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = login;
-                command.Parameters.Add("@up", MySqlDbType.VarChar).Value = password;*/
-
-                if (true)
+                if (res.ToString() == "teacher")
                 {
-                    MessageBox.Show("Вы авторизовались!");
+                    MessageBox.Show("Вы авторизовались как преподаватель!");
                     AdminWindow adminWindow = new AdminWindow();
                     adminWindow.Show();
+                    Close();
+                }
+                else if (res.ToString() == "admin")
+                {
+                    MessageBox.Show("Вы авторизовались как администратор!");
+                    AdminWindow adminWindow = new AdminWindow();
+                    adminWindow.Show();
+                    Close();
+                }
+                else if (res.ToString() == "student")
+                {
+                    MessageBox.Show("Вы авторизовались как студент!");
+                    new MainWindow().Show();
                     Close();
                 }
                 else
                 {
                     MessageBox.Show("ERROR!!!");
                 }
-
-                /*TextBox_Login.ToolTip = "";
-                TextBox_Login.Background = Brushes.Transparent;
-                PassBox_Pass.ToolTip = "";
-                PassBox_Pass.Background = Brushes.Transparent;*/
             }
         }
 
-        /*private void Button_Window_Reg_OnClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Hide();
-        }*/
+        
     }
 }

@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DB\DB.csproj" />
     <ProjectReference Include="..\Models.lib\Models.lib.csproj" />
+    <ProjectReference Include="..\ProgramForTesting.App\ProgramForTesting.App.csproj" />
     <ProjectReference Include="..\TestingProgram1.App\TestingProgram1.App.csproj" />
   </ItemGroup>
 

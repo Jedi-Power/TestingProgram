@@ -43,9 +43,9 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="100">
                     <Image Height="25" Width="25" Margin="30 0 0 0"
-                       Source="Source/windowminimize_.png" MouseDown="Minimize_Window" />
+                       Source="Source/windowminimize_.png" MouseLeftButtonDown="Minimize_Window" />
                     <Image Height="25" Width="25" Margin="10 0 0 0"
-                       Source="Source/windowclose_.png" MouseDown="Close_Window" />
+                       Source="Source/windowclose_.png" MouseLeftButtonDown="Close_Window" />
                 </StackPanel>
             </StackPanel>
         </Grid>
