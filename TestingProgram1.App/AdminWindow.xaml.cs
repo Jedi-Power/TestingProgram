@@ -19,21 +19,33 @@ namespace TestingProgram1.App
 {
     public partial class AdminWindow : Window
     {
+        string theme = "";
         public AdminWindow()
         {
             InitializeComponent();
 
-            //var db = new RequestDb();
-            //ListTest.ItemsSource = db.GetAllTests();
+            
+        }
+        private async void AdminWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var db = new RequestDb();
+            await db.GetSubjectAsync();
+            List<string> subj = new List<string>();
+
+            for (int i = 0; i < db._subjects.Count; i++)
+            {
+                subj.Add(db._subjects[i].Name);
+            };
+
+            ListTest.ItemsSource = subj;
         }
 
         private void ListTest_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //var test = (sender as ListBox)?.SelectedItem as Test;
-            //TextBoxSubject.Text = test?.Id.ToString();
-            //TextBoxAnsver.Text = test?.SubjectId.ToString();
+            theme = ListTest.SelectedItem.ToString();
         }
 
+        
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
             //var test = new Test
@@ -70,6 +82,28 @@ namespace TestingProgram1.App
         private void Minimize_Window(object sender, MouseButtonEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+        
+
+        private async void ButtonAddTest_Click(object sender, RoutedEventArgs e)
+        {
+            string comand = $"INSERT INTO tab_Subjects(name, allotted_time) VALUES(N'{TextBoxSubject.Text}',{int.Parse(TextBoxTestTime.Text)})";
+            RequestDb requestDb = new RequestDb();
+            await requestDb.RequestExecuteNonQueryAsync(comand);
+            MessageBox.Show("Новый тест добавлен!");
+            TextBoxSubject.Text = "";
+            TextBoxTestTime.Text = "";
+        }
+
+        private async void ButtonDelTest_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ButtonAddQuestions_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(theme);
         }
     }
 }

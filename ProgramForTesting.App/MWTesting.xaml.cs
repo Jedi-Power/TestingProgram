@@ -12,9 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DB;
 
 namespace ProgramForTesting.App
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -23,13 +25,38 @@ namespace ProgramForTesting.App
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var db = new RequestDb();
+            await db.GetSubjectAsync();
+            List<string> subj = new List<string>();
+
+            for (int i = 0; i < db._subjects.Count; i++)
+            {
+                subj.Add(db._subjects[i].Name);
+            };
+
+            ListBoxTestList.ItemsSource = subj;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ListBoxTestList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            new Window1().Show();
-            this.Close();
+            ForAll.theme1 = ListBoxTestList.SelectedItem.ToString();
         }
+
+        private void ButtonSelectTest_Click(object sender, RoutedEventArgs e)
+        {
+
+            new Window1().Show();
+            this.Hide();
+        }
+    }
+
+    static class ForAll
+    {
+        public static string theme1 { get; set; }
     }
 }
 

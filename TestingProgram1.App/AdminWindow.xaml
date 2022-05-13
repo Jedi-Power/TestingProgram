@@ -9,7 +9,8 @@
 
         Title="Редактор тестов" Height="800" Width="1000" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" Background="LightGray"
-        BorderThickness="1" BorderBrush="BlueViolet" FontFamily="Calibri" FontWeight="Bold">
+        BorderThickness="1" BorderBrush="BlueViolet" FontFamily="Calibri" FontWeight="Bold"
+        Loaded="AdminWindow_Loaded">
 
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"/>
@@ -57,21 +58,20 @@
                     <Label Margin="5" Content="Введите название нового теста:" HorizontalContentAlignment="Center"/>
                     <TextBox x:Name="TextBoxSubject"  
                                  BorderBrush="BlueViolet" BorderThickness="0 1 0 1" Width="250" Height="50" HorizontalAlignment="Left" TextWrapping="Wrap"/>
-                    <Button Width="150" Margin="0 10" Content="Добавить тест"
-                            Background="Green"/>
+                    <Label Margin="5" Content="Введите время прохождениz теста (минут):" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxTestTime"  
+                                 BorderBrush="BlueViolet" BorderThickness="1" Width="100" Height="30" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="ButtonAddTest" Width="150" Margin="0 10" Content="Добавить тест"
+                            Background="Green" Click="ButtonAddTest_Click"/>
                     <StackPanel VerticalAlignment="Top">
-                        <ListBox x:Name="ListTest" Height="450" BorderBrush="BlueViolet" BorderThickness="2" SelectionChanged="ListTest_OnSelectionChanged" Margin="0,0,0,50">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Path=SubjectId}"/>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
+                        <ListBox x:Name="ListTest" Height="370" BorderBrush="BlueViolet" BorderThickness="2" SelectionChanged="ListTest_OnSelectionChanged" Margin="0,0,0,50">
+                            
                         </ListBox>
                         <StackPanel Orientation="Horizontal">
-                            <Button Width="120" Margin="0 10" Padding="0" Content="Добавить вопросы"
-                            Background="Green"/>
-                            <Button Width="120" Margin="5 10 0 10" Content="Удалить тест"
-                            Background="Red"/>
+                            <Button x:Name="ButtonAddQuestions" Width="120" Margin="0 10" Padding="0" Content="Добавить вопросы"
+                            Background="Green" Click="ButtonAddQuestions_Click"/>
+                            <Button x:Name="ButtonDelTest" Width="120" Margin="5 10 0 10" Content="Удалить тест"
+                            Background="Red" Click="ButtonDelTest_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

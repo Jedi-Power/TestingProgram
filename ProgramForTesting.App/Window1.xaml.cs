@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
+
 namespace ProgramForTesting.App
 {
     /// <summary>
@@ -26,6 +27,7 @@ namespace ProgramForTesting.App
         public Window1()
         {
             InitializeComponent();
+            TextBlockSubjectName.Text = ForAll.theme1.ToString();
             if ((MaxTimerCounter % 60) == 0)
             {
                 InfoTextBlock.Text = $"{(MaxTimerCounter / 60).ToString()}:{(MaxTimerCounter % 60).ToString()}0";
