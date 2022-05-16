@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <None Remove="scale_1200.webp" />
+    <None Update="Source\windowclose_.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +21,10 @@
 
   <ItemGroup>
     <Resource Include="scale_1200.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
   </ItemGroup>
 
 </Project>

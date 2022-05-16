@@ -1,9 +1,19 @@
+<<<<<<< Updated upstream:TestingProgram.App/WindowAutharization/AuthWindow.xaml.cs
 using System.Windows;
 using System.Windows.Media;
 using Db_Lib;
 using MySql.Data.MySqlClient;
 
 namespace TestingProgram.App.WindowAutharization
+=======
+﻿using System.Windows;
+using System.Windows.Media;
+using DB;
+using ProgramForTesting.App;
+using TestingProgram1.App;
+
+namespace Authtorization.App
+>>>>>>> Stashed changes:Authtorization.App/AuthWindow.xaml.cs
 {
     public partial class AuthWindow : Window
     {
@@ -29,6 +39,7 @@ namespace TestingProgram.App.WindowAutharization
             }
             else
             {
+<<<<<<< Updated upstream:TestingProgram.App/WindowAutharization/AuthWindow.xaml.cs
                 //var db = new DB();
 
                 /*MySqlCommand command = new MySqlCommand("SELECT * FROM 'users' WHERE 'login' = @_ul AND 'pass' = @_up");
@@ -40,6 +51,22 @@ namespace TestingProgram.App.WindowAutharization
                     MessageBox.Show("Вы авторизовались!");
                     AdminWindow adminWindow = new AdminWindow();
                     adminWindow.Show();
+=======
+                string comand = "Select * from tab_Authorizations";
+                var requestDb = new RequestDb();
+                var res = await requestDb.QueryAuthorizationAsync(comand, login, password);
+
+                if (res.ToString() == "teacher")
+                {
+                    MessageBox.Show("Вы авторизовались как преподаватель!");
+                    new AdminWindow().Show();
+                    Close();
+                }
+                else if (res.ToString() == "admin")
+                {
+                    MessageBox.Show("Вы авторизовались как администратор!");
+                    new AdminWindow().Show();
+>>>>>>> Stashed changes:Authtorization.App/AuthWindow.xaml.cs
                     Close();
                 }
                 else
@@ -53,6 +80,7 @@ namespace TestingProgram.App.WindowAutharization
                 PassBox_Pass.Background = Brushes.Transparent;*/
             }
         }
+<<<<<<< Updated upstream:TestingProgram.App/WindowAutharization/AuthWindow.xaml.cs
 
         /*private void Button_Window_Reg_OnClick(object sender, RoutedEventArgs e)
         {
@@ -60,5 +88,7 @@ namespace TestingProgram.App.WindowAutharization
             mainWindow.Show();
             Hide();
         }*/
+=======
+>>>>>>> Stashed changes:Authtorization.App/AuthWindow.xaml.cs
     }
 }

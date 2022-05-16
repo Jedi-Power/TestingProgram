@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:TestingProgram.App/WindowAutharization/AuthWindow.xaml
 <Window x:Class="TestingProgram.App.WindowAutharization.AuthWindow"
+=======
+﻿<Window x:Class="Authtorization.App.AuthWindow"
+>>>>>>> Stashed changes:Authtorization.App/AuthWindow.xaml
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -31,9 +35,16 @@
                 
                 <PasswordBox x:Name="PassBox_Pass" materialDesign:HintAssist.Hint="Введите пароль"
                              Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+<<<<<<< Updated upstream:TestingProgram.App/WindowAutharization/AuthWindow.xaml
                 
                 <Button Content="Войти" Margin="0 20 0 0" Click="Button_Auth_OnClick"/>
                 
+=======
+
+                <Button Content="Войти" Margin="0 20 0 0" IsDefault="True"
+                        Click="Button_Auth_OnClick"/>
+
+>>>>>>> Stashed changes:Authtorization.App/AuthWindow.xaml
             </StackPanel>
             
         </Border>

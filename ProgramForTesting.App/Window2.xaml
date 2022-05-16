@@ -6,23 +6,15 @@
         xmlns:local="clr-namespace:ProgramForTesting.App"
         mc:Ignorable="d"
         Title="Window2" Height="1000" Width="1200" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="LightGray"
+        BorderThickness="1" BorderBrush="BlueViolet" FontFamily="Calibri" FontWeight="Bold">
+    
     <Grid Cursor="Pen">
-        <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Color="DarkGray"/>
-                <GradientStop Color="#FFB5ECEC" Offset="1"/>
-            </RadialGradientBrush>
-        </Grid.Background>
 
-        <Button x:Name="ButtonEndTest" Content="Завершить тест" HorizontalAlignment="Left" Foreground="Black" BorderThickness="3,3,3,3" Width="276" Height="100" IsDefault="True" VerticalAlignment="Top" Margin="765,123,0,0" FontSize="30" FontFamily="Trebuchet MS" Click="ButtonEndTest_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="LightBlue"/>
-                    <GradientStop Color="#FF7DBFD3" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="ButtonEndTest" Content="Завершить тест" HorizontalAlignment="Left" 
+                Width="276" Height="70" VerticalAlignment="Top" Margin="765,123,0,0" 
+                FontSize="30" FontWeight="Bold" Click="ButtonEndTest_Click"/>
+        
         <Image x:Name="QuestionLogo" HorizontalAlignment="Left" Height="200" Margin="160,20,0,0" VerticalAlignment="Top" Width="500" Source="/scale_1200.webp" Stretch="Fill"/>
 
         <TextBlock x:Name="InfoTextBlock" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,197,0" Width="200" Height="70" FontSize="50"/>
@@ -68,15 +60,9 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <Button x:Name="ButtonSetAnswer" Content="Ответить" HorizontalAlignment="Center" Foreground="Black" BorderThickness="3,3,3,3" Width="276" Height="62" IsDefault="True" VerticalAlignment="Top" Margin="0,868,0,0" FontSize="30" FontFamily="Trebuchet MS">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="LightBlue"/>
-                    <GradientStop Color="#FF7DBFD3" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-
+        <Button x:Name="ButtonSetAnswer" Content="Ответить" HorizontalAlignment="Center" 
+                Width="270" Height="70" VerticalAlignment="Top" Margin="0,860,0,0" 
+                FontSize="30" FontWeight="Bold"/>
     </Grid>
 </Window>
 

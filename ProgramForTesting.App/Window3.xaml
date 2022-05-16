@@ -5,16 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramForTesting.App"
         mc:Ignorable="d"
-        Title="Window3" Height="800" Width="1200"
-        WindowStartupLocation="CenterScreen">
+        
+        Title="Window3" Height="800" Width="1200" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="LightGray"
+        BorderThickness="1" BorderBrush="BlueViolet" FontFamily="Calibri" FontWeight="Bold">
+    
     <Grid>
-        <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Color="DarkGray"/>
-                <GradientStop Color="#FFB5ECEC" Offset="1"/>
-            </RadialGradientBrush>
-        </Grid.Background>
-
+        
         <TextBlock x:Name="TextBlockTxt1" Text="Тестирование завершено" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0" Width="600" Height="80" FontSize="50"/>
 
         <TextBlock x:Name="TextBlockFIO" Text="Имя Отчество," HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,171,0,0" Width="800" Height="80" FontSize="50"/>
@@ -31,21 +28,12 @@
         <TextBlock x:Name="TextBlockEvaluation" Text="___" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="811,420,0,0" Width="110" Height="120" FontSize="80"/>
 
 
-        <Button x:Name="ButtonExit" Content="Выйти из программы" HorizontalAlignment="Left" Foreground="Black" BorderThickness="3,3,3,3" Width="400" Height="100" IsDefault="True" VerticalAlignment="Bottom" Margin="80,0,0,61" FontSize="30" FontFamily="Trebuchet MS" Click="ButtonExit_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="LightBlue"/>
-                    <GradientStop Color="#FF7DBFD3" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="ButtonBackToSubjects" Content="Вернуться к списку тестов" HorizontalAlignment="Left" Foreground="Black" BorderThickness="3,3,3,3" Width="400" Height="100" IsDefault="True" VerticalAlignment="Bottom" Margin="721,0,0,61" FontSize="30" FontFamily="Trebuchet MS" Click="ButtonBackToSubjects_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="LightBlue"/>
-                    <GradientStop Color="#FF7DBFD3" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="ButtonExit" Content="Выйти из программы" HorizontalAlignment="Left"
+                Width="400" Height="70" VerticalAlignment="Bottom" Margin="100 0 0 70" 
+                FontSize="30" FontWeight="Bold" Click="ButtonExit_Click"/>
+        
+        <Button x:Name="ButtonBackToSubjects" Content="Вернуться к списку тестов" HorizontalAlignment="Right"
+                Width="400" Height="70" VerticalAlignment="Bottom" Margin="0 0 100 70" 
+                FontSize="30" FontWeight="Bold" Click="ButtonBackToSubjects_Click"/>
     </Grid>
 </Window>
